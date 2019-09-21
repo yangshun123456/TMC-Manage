@@ -1,0 +1,80 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+#all{
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/back.png");
+    background-size: 100% 100%;
+    /*background-color: yellow;*/
+}
+#left{
+    width: 70%;
+    height: 100%;
+    float: left;
+    /*border-right: 5px solid greenyellow;*/
+}
+#right{
+    width: 30%;
+    height: 100%;
+    float: left;
+    line-height: 250%;
+}
+#login{
+    position: relative;
+    top: 200px;
+    left: 120px;
+    width: 80%;
+    height: 50%;
+}
+#alert1,#alert2{
+    font-size: 20px;
+    font-family: 微软雅黑;
+    position: relative;
+    top: -15px;
+    left: 50px;
+}
+
+#title{
+    position: relative;
+    top: 150px;
+    left: 130px;
+    font-family: 微软雅黑;
+    font-size: 40px;
+    color: dimgrey;
+}
+#user{
+    font-size: 18px;
+    font-family: 微软雅黑;
+    width: 80%;
+    height: 50px;
+}
+#password{
+    font-size: 18px;
+    width: 80%;
+    height: 50px;
+}
+#check{
+    zoom:200%;
+}
+#a1{
+    position: relative;
+    left: 150px;
+    top:8px;
+    font-size: 18px;
+    font-family: 微软雅黑;
+    text-decoration: none;
+    font-weight:bold;
+}
+#button{
+    width: 80%;
+    height:50px;
+    border-radius: 2em;
+    font-size:26px;
+    font-family: 微软雅黑;
+}
+#button:hover{
+    background-color: #FBD8CE;
+}
