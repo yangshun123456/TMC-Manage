@@ -27,7 +27,7 @@
                 }
                 else {
                     window.clearInterval(timer);
-                    location.href = "login.jsp";
+                    location.href = "login1.jsp";
                 }
             }
 
@@ -35,7 +35,7 @@
             function resetTimer() {
                 if (timer != null && timer != undefined) {
                     window.clearInterval(timer);
-                    location.href = "login.jsp";
+                    location.href = "login1.jsp";
                 }
             }
         </script> 
@@ -43,7 +43,7 @@
     <body class="error_page" onload="startTimes();">
         <h1 id="error">
 	        遇到错误，&nbsp;<span id="secondes">5</span>&nbsp;秒后将自动跳转，立即跳转请点击&nbsp;
-            <a class="login.jsp" href="javascript:resetTimer();">返回</a>
+            <a class="login1.jsp" href="javascript:resetTimer();">返回</a>
         </h1>
     </body>
 </html>

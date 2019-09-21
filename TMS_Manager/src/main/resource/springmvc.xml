@@ -22,5 +22,21 @@
     <!--那些请求不会被拦截-->
     <mvc:resources mapping="/resource/**" location="/resource/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/mydesign/**" location="/mydesign/"/>
+
+    <!--   配置的是国际化资源文件的路径-->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:mess"/>
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
+    <!-- 配置SessionLocaleResolver用于将Locale对象存储于Session中供后续使用 -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+
+    <!--    配置拦截器拦截带lang的请求,使其重新设置页面的区域化信息-->
+    <mvc:interceptors>
+        <bean id="localchange" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="lang"/>
+        </bean>
+    </mvc:interceptors>
     <mvc:annotation-driven />
 </beans>

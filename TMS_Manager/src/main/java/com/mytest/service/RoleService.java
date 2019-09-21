@@ -10,24 +10,19 @@ public interface RoleService {
      */
     List<Role> selectAllRole();
     /**
-     * 查询名字的id
+     * 查询根据sname查询role信息
      * @param rname
      * @return
      */
-    Role selectRoleId(String rname);
+    Role selectRoleBySname(String rname);
 
     /**
      * 通过角色id删除角色
-     * @param rid
+     * @param role
      * @return
      */
-    boolean deleteRole(int rid);
-    /**
-     * 查询所有角色的所有权限
-     * @param
-     * @return
-     */
-    List<Role> selectRolePriv();
+    int deleteRole(Role role);
+
 
     /**
      * 查询指定角色的权限(使用id)
@@ -41,12 +36,12 @@ public interface RoleService {
      * @param role
      * @return
      */
-    boolean insertRole(Role role);
+    int insertRole(Role role);
 
     /**
      * 修改角色权限
      * @param role
      * @return
      */
-    boolean updateRolePriv(Role role);
+    int updateRolePriv(Role role,String pastrname);
 }

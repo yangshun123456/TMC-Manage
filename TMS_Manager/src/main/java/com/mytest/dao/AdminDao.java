@@ -1,6 +1,8 @@
 package com.mytest.dao;
 
 import com.mytest.entity.Admin;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
@@ -14,8 +16,11 @@ public interface AdminDao {
      *
      * @return
      */
-    @Select("select * from tc_admin")
-    List<Admin> selectall();
+//    @Results({
+//            @Result()
+//    })
+//    @Select("select * from tc_admin")
+//    List<Admin> selectall();
 
     /**
      * 根据id和密码查询用户

@@ -7,6 +7,11 @@ import java.util.List;
 
 public interface PrivService {
     /**
+     * 查询所有权限
+     * @return
+     */
+    List<Priv> selectAllPriv();
+    /**
      * 查询用户的权限
      * @param admin
      * @return

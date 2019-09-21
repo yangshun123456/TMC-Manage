@@ -14,6 +14,8 @@
         <%@include file="../import.jsp" %>
         <script language="javascript" type="text/javascript">
             $(function () {
+                $(".role_off").addClass("role_on");
+                $(".role_off").removeClass("role_off");
                 var succ=${successMeg};
                 var error=${errorMsg};
                 if (succ=='删除成功') {
@@ -41,7 +43,7 @@
         <!--Logo区域开始-->
         <div id="header">
             <%--            <img src="../images/logo.png" alt="logo" class="left"/>--%>
-            <a href="${PATH_WAY}/quit" id="a123">[退出]</a>
+            <a href="quit" id="a123">[退出]</a>
         </div>
         <!--Logo区域结束-->
         <!--导航区域开始-->
@@ -57,11 +59,11 @@
             <form action="" method="">
                 <!--查询-->
                 <div class="search_add">
-                    <input type="button" value="增加" class="btn_add" onclick="location.href='${PATH_WAY}/addChangeRole';"/>
+                    <input type="button" value="增加" class="btn_add" onclick="location.href='role/add';"/>
                 </div>
                 <!--删除的操作提示-->
                 <div id="operate_result_info" class="operate_success">
-                    <img src="../images/close.png" onclick="this.parentNode.style.display='none';"/>
+                    <img src="${PATH_WAY}/images/close.png" onclick="this.parentNode.style.display='none';"/>
                     删除成功！
                 </div> <!--删除错误！该角色被使用，不能删除。-->
                 <!--数据区域：用表格展示数据-->
@@ -78,16 +80,15 @@
                         </thead>
                         <tbody>
 
-                            <c:forEach items="${requestScope.rolelist}" var="role1">
+                            <c:forEach items="${rolelist}" var="role1">
                                 <tr>
                                     <td>${role1.rid}</td>
                                     <td>${role1.rname}</td>
                                     <td>${role1.privstring}</td>
                                     <td>
-                                        <input type="hidden" value="${role1.rid}" id="${role1.rid}">
                                         <input type="button" value="修改" class="btn_modify"
-                                               onclick="location.href='${PATH_WAY}/addChangeRole?rid=${role1.rid}&rname=${role1.rname}'"/>
-                                        <input type="button" value="删除" class="btn_delete" onclick="location.href='${PATH_WAY}/deleteRole?rid=${role1.rid}'"/>
+                                               onclick="location.href='role/update?rid=${role1.rid}&rname=${role1.rname}'"/>
+                                        <input type="button" value="删除" class="btn_delete" onclick="location.href='role/deleteRole?rid=${role1.rid}'"/>
                                     </td>
                                 </tr>
                             </c:forEach>

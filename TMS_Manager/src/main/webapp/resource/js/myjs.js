@@ -42,7 +42,7 @@ $(function () {
         //     },
         //     success:function (result) {
         //         if(result=="ok") {
-        //             window.location.href = "/telitem_war_exploded/view/index.jsp";
+        //             window.location.href = "/telitem_war_exploded/view/login1.jsp";
         //         }else{
         //             window.location.href = "/telitem_war_exploded/view/error.jsp";
         //         }

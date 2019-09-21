@@ -17,7 +17,7 @@
                 $(".information_off ").removeClass("information_off");
                 $("#submi").click(function () {
                     $.get({
-                        url: 'userMessage',
+                        url: 'admin/userMessage',
                         data: $("#form1").serialize(),
                         success: function (result) {
                             showMessage(result);
@@ -51,7 +51,7 @@
         <!--Logo区域开始-->
         <div id="header">
             <%--            <img src="../images/logo.png" alt="logo" class="left"/>--%>
-            <a href="${PATH_WAY}/quit" id="a123">[退出]</a>
+            <a href="quit" id="a123">[退出]</a>
         </div>
         <!--Logo区域结束-->
         <!--导航区域开始-->

@@ -16,10 +16,10 @@ To change this template use File | Settings | File Templates.
             $(function () {
                 $("#subm").click(function () {
                     $.post({
-                        url:'changeInsertRole',
-                        data:$("#form1").serialize(),
-                        success:function (result) {
-                            if ("修改成功" == result||"添加成功"==result) {
+                        url: 'insertRole',
+                        data: $("#form1").serialize(),
+                        success: function (result) {
+                            if ("添加成功" == result) {
                                 $("#save_result_info").removeClass("save_fail ");
                                 $("#save_result_info").addClass("save_success");
                                 $("#save_result_info").text(result);
@@ -31,12 +31,13 @@ To change this template use File | Settings | File Templates.
                             change();
                             setTimeout(change2, 2000);
                         },
-                        error:function () {
+                        error: function () {
 
                         }
                     })
                 })
             })
+
             function change() {
                 $("#save_result_info").css('display', 'block');
             }
@@ -50,7 +51,7 @@ To change this template use File | Settings | File Templates.
         <!--Logo区域开始-->
         <div id="header">
             <%--            <img src="../images/logo.png" alt="logo" class="left"/>--%>
-            <a href="${PATH_WAY}/quit" id="a123">[退出]</a>
+            <a href="quit" id="a123">[退出]</a>
         </div>
         <!--Logo区域结束-->
         <!--导航区域开始-->
@@ -67,47 +68,24 @@ To change this template use File | Settings | File Templates.
             <form action="" method="" class="main_form" id="form1">
                 <div class="text_info clearfix"><span>角色名称：</span></div>
                 <div class="input_info">
-                    <input type="text" class="width200" value="${rname}" name="rname"/>
+                    <input type="text" class="width200" value="${role1.rname}" name="rname"/>
                     <span class="required">*</span>
-                    <div class="validate_msg_medium">不能为空，且为20长度的字母、数字和汉字的组合</div>
+                    <div class="validate_msg_medium"></div>
                 </div>
                 <div class="text_info clearfix"><span>设置权限：</span></div>
                 <div class="input_info_high">
                     <div class="input_info_scroll">
                         <ul>
-                            <c:if test="${rname==''}">
-                                <c:forEach items="${allpriv}" var="allpriv1">
-                                    <c:if test="${allpriv1.by001=='主页'||allpriv1.by001=='个人信息'||allpriv1.by001=='密码修改'}">
-                                        <li><input type="checkbox" name="choose" checked="checked" value="${allpriv1.by001}"
-                                                   onclick="return false" >${allpriv1.by001}</li>
-                                    </c:if>
-                                    <c:if test="${allpriv1.by001!='主页'&&allpriv1.by001!='个人信息'&&allpriv1.by001!='密码修改'}">
-                                        <li><input type="checkbox" name="choose" value="${allpriv1.by001}">${allpriv1.by001}</li>
-                                    </c:if>
-                                </c:forEach>
-                            </c:if>
-                            <c:if test="${rname!=''}">
-                                <c:forEach items="${allpriv}" var="allpriv1">
-                                    <c:set value="true" var="a"></c:set>
-                                    <c:if test="${allpriv1.by001=='主页'||allpriv1.by001=='个人信息'||allpriv1.by001=='密码修改'}">
-                                        <li><input id="${allpriv1.by001}" name="choose" type="checkbox" checked="checked" value="${allpriv1.by001}" onclick="return false">${allpriv1.by001}</li>
-                                    </c:if>
-                                    <c:if test="${allpriv1.by001!='主页'&&allpriv1.by001!='个人信息'&&allpriv1.by001!='密码修改'}">
-                                        <c:forEach items="${priv}" var="priv1">
-                                            <c:if test="${allpriv1.by001!='主页'&&allpriv1.by001!='个人信息'&&allpriv1.by001!='密码修改'}">
-                                                <c:if test="${allpriv1.by001==priv1.by001}">
-                                                    <li><input name="choose" type="checkbox" value="${allpriv1.by001}" checked="checked">${allpriv1.by001}</li>
-                                                    <c:set var="a" value="false"></c:set>
-                                                </c:if>
-                                            </c:if>
-                                        </c:forEach>
-                                        <c:if test="${a==true}">
-                                            <li><input  type="checkbox" value="${allpriv1.by001}" name="choose">${allpriv1.by001}</li>
-                                        </c:if>
-
-                                    </c:if>
-                                </c:forEach>
-                            </c:if>
+                            <c:forEach items="${allpriv}" var="allpriv1">
+                                <c:if test="${allpriv1.by001=='主页'||allpriv1.by001=='个人信息'||allpriv1.by001=='密码修改'}">
+                                    <li><input type="checkbox" name="choose" checked="checked" value="${allpriv1.pid}"
+                                               onclick="return false">${allpriv1.by001}</li>
+                                </c:if>
+                                <c:if test="${allpriv1.by001!='主页'&&allpriv1.by001!='个人信息'&&allpriv1.by001!='密码修改'}">
+                                    <li><input type="checkbox" name="choose" value="${allpriv1.pid}">${allpriv1.by001}
+                                    </li>
+                                </c:if>
+                            </c:forEach>
                         </ul>
                     </div>
                     <span class="required">*</span>
