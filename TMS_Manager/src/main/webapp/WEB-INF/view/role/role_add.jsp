@@ -15,28 +15,31 @@ To change this template use File | Settings | File Templates.
         <script>
             $(function () {
                 $("#subm").click(function () {
-                    $.post({
-                        url: 'insertRole',
-                        data: $("#form1").serialize(),
-                        success: function (result) {
-                            if ("添加成功" == result) {
-                                $("#save_result_info").removeClass("save_fail ");
-                                $("#save_result_info").addClass("save_success");
-                                $("#save_result_info").text(result);
-                            } else {
-                                $("#save_result_info").removeClass("save_success");
-                                $("#save_result_info").addClass("save_fail");
-                                $("#save_result_info").text(result);
-                            }
-                            change();
-                            setTimeout(change2, 2000);
-                        },
-                        error: function () {
-
-                        }
-                    })
+                   a();
                 })
             })
+            function a() {
+                $.post({
+                    url: 'insertRole',
+                    data: $("#form1").serialize(),
+                    success: function (result) {
+                        if ("添加成功" == result) {
+                            $("#save_result_info").removeClass("save_fail ");
+                            $("#save_result_info").addClass("save_success");
+                            $("#save_result_info").text(result);
+                        } else {
+                            $("#save_result_info").removeClass("save_success");
+                            $("#save_result_info").addClass("save_fail");
+                            $("#save_result_info").text(result);
+                        }
+                        change();
+                        setTimeout(change2, 2000);
+                    },
+                    error: function () {
+
+                    }
+                })
+            }
 
             function change() {
                 $("#save_result_info").css('display', 'block');

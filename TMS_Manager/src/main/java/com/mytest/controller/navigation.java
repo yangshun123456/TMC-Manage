@@ -46,7 +46,6 @@ public class navigation {
     public String admin(Model model) {
         List<Admin> admins = adminService.selectAlluer ();
         model.addAttribute ("adminlist",admins);
-        System.out.println (admins);
         return "admin/admin_list";
     }
 

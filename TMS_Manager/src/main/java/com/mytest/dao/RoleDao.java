@@ -1,6 +1,7 @@
 package com.mytest.dao;
 
 import com.mytest.entity.Admin;
+import com.mytest.entity.Admin_Role;
 import com.mytest.entity.Role;
 import com.mytest.entity.Role_Priv;
 import org.apache.ibatis.annotations.*;
@@ -91,4 +92,27 @@ public interface RoleDao {
      */
     @Delete ("delete from tc_role where rid=#{rid}")
     int deleteRole(Role role);
+
+    /**
+     * 插入关联表
+     * @param list
+     * @return
+     */
+    @Insert ({
+            "<script>",
+            "insert into tc_admin_role(aid,rid) values",
+            "<foreach collection='list' item='mylist' separator=','>",
+            "(#{mylist.aid},#{mylist.rid})",
+            "</foreach>",
+            "</script>"
+    })
+    int insertAdminAndRole(List<Admin_Role> list);
+
+    /**
+     * 删除关联表信息
+     * @param admin
+     * @return
+     */
+    @Delete ("delete from tc_admin_role where aid=#{aid}")
+    int deleteAdminAndRole(Admin admin);
 }

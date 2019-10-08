@@ -13,20 +13,7 @@
         <%@include file="../import.jsp" %>
         <script language="javascript" type="text/javascript">
             //保存成功的提示消息
-           $(function () {
-               $("#submit1").click(function () {
-                   $.post({
-                       url:'UpdateAdmin',
-                       data:$("#form1").serialize(),
-                       success:function (result) {
-                           alert(result);
-                       },
-                       error:function () {
 
-                       }
-                   })
-               })
-           })
 
             function showResultDiv(flag) {
                 var divResult = document.getElementById("save_result_info");
@@ -54,7 +41,7 @@
         <!--主要区域开始-->
         <div id="main">
             <div id="save_result_info" class="save_success">保存成功！</div>
-            <form action="" method="" class="main_form" id="form1">
+            <form action="updateAdmin" method="post" class="main_form" id="form1">
                 <div class="text_info clearfix"><span>姓名：</span></div>
                 <div class="input_info">
                     <input type="text" value="${updateadmin.aname}" name="aname"/>
@@ -98,7 +85,7 @@
 <%--                    <div class="validate_msg_tiny error_msg">至少选择一个</div>--%>
                 </div>
                 <div class="button_info clearfix">
-                    <input type="button" value="保存" class="btn_save" id="submit1"/>
+                    <input type="submit" value="保存" class="btn_save" id="submit1" />
                     <input type="button" value="取消" class="btn_save"/>
                 </div>
             </form>

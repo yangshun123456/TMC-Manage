@@ -78,7 +78,7 @@
                     <div>角色：<input type="text" value="" name="rname"  class="text_search width200" id="dsa"/></div>
                     <div><input type="button" value="搜索" class="btn_search" onclick="as()"/></div>
                     <input type="button" value="密码重置" class="btn_add" onclick="resetPwd();"/>
-                    <input type="button" value="增加" class="btn_add" onclick="location.href='${PATH_WAY}/showAddAdmin';"/>
+                    <input type="button" value="增加" class="btn_add" onclick="location.href='admin/toadd;'"/>
                 </div>
                 <!--删除和密码重置的操作提示-->
                 <div id="operate_result_info" class="operate_fail">
@@ -121,8 +121,8 @@
                                 </td>
                                 <td class="td_modi">
                                     <input type="button" value="修改" class="btn_modify"
-                                           onclick="location.href='${PATH_WAY}/ShowChangeMessage?aid=${admin.aid}';"/>
-                                    <input type="button" value="删除" class="btn_delete" onclick="location.href='${PATH_WAY}/deleteAdmin?aid=${admin.aid}'"/>
+                                           onclick="location.href='admin/toUpdate?aid=${admin.aid}';"/>
+                                    <input type="button" value="删除" class="btn_delete" onclick="location.href='admin/deleteAdmin?aid=${admin.aid}'"/>
                                 </td>
                         </tr>
                         </c:forEach>

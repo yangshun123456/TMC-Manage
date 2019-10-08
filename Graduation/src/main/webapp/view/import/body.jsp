@@ -56,13 +56,13 @@
                     <li class="icons dropdown">
                         <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                             <span class="activity active"></span>
-                            <img src="../quixlab-master/images/user/1.png" height="40" width="40" alt="">
+                            <img src="<%=request.getContextPath()%>/quixlab-master/images/user/1.png" height="40" width="40" alt="">
                         </div>
                         <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                             <div class="dropdown-content-body">
                                 <ul>
                                     <li>
-                                        <a href="../quixlab-master/app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                        <a href="<%=request.getContextPath()%>/quixlab-master/app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
                                     </li>
                                     <li>
                                         <a href=" #">
@@ -99,7 +99,7 @@
                         <i class="icon-speedometer menu-icon"></i><span class="nav-text">角色管理</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="../index.jsp">角色查询/删除</a></li>
+                        <li><a href="<%=request.getContextPath()%>/view/role/role_list.jsp">角色查询/删除</a></li>
                         <li><a href="../index.jsp">角色修改</a></li>
                         <li><a href="../index.jsp">角色添加</a></li>
                     </ul>

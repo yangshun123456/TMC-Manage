@@ -4,6 +4,7 @@ import com.mytest.dao.AdminDao;
 import com.mytest.dao.PrivDao;
 import com.mytest.dao.RoleDao;
 import com.mytest.entity.Admin;
+import com.mytest.entity.Admin_Role;
 import com.mytest.entity.Priv;
 import com.mytest.entity.Role;
 import com.mytest.service.AdminService;
@@ -25,13 +26,27 @@ public class AdminServiceImlp implements AdminService {
     RoleDao roleDao=null;
 
     @Override
-    public int updateAdmin(Admin admin, int rid) {
-        return 0;
+    public int updateAdmin(Admin admin) {
+        //获取角色信息
+        List<Admin_Role> list1=new ArrayList<> ();
+        List<Role> list=admin.getUserrole ();
+        for (Role role : list) {
+            Admin_Role admin_role=new Admin_Role (admin.getAid (),role.getRid ());
+            list1.add (admin_role);
+        }
+
+        //执行修改操作
+        int i=adminDao.updateAdmin (admin);
+        int k=roleDao.deleteAdminAndRole (admin);
+        int j=roleDao.insertAdminAndRole (list1);
+
+        return i+k+j;
     }
 
     @Override
-    public Admin selectAdminAndRoleById(int aid) {
-        return null;
+    public Admin selectAdminAndRoleById(Admin admin) {
+        Admin admin1=adminDao.selectAdmin (admin);
+        return admin1;
     }
 
     @Override
@@ -40,18 +55,40 @@ public class AdminServiceImlp implements AdminService {
     }
 
     @Override
-    public int deleteAdmin(int aid) {
-        return 0;
+    public int deleteAdmin(Admin admin) {
+        int i=adminDao.deleteAdmin (admin);
+        int k=roleDao.deleteAdminAndRole (admin);
+        return i+k;
     }
 
     @Override
     public int insertAdmin(Admin admin) {
-        return 0;
+        int i=0,k=0;
+        //插入用户
+        i=adminDao.insertAdmin (admin);
+        //查询用户id
+        Admin admin1 = adminDao.selectAdminByAcname (admin) ;
+        List<Role> list=admin.getUserrole ();
+        //插入关联信息
+        List<Admin_Role> admin_roles=new ArrayList<> ();
+        for (Role role : list) {
+            Admin_Role admin_role=new Admin_Role (admin1.getAid (),role.getRid ());
+            admin_roles.add (admin_role);
+        }
+        //插入信息
+        k=roleDao.insertAdminAndRole (admin_roles);
+        return i+k;
     }
 
     @Override
     public List<Admin> selectAlluer() {
-        return null;
+        List<Admin> list=adminDao.selectall ();
+        for (Admin admin : list) {
+            admin.changeRole ();
+            admin.changeUpdateTime ();
+            admin.changeCreateTime ();
+        }
+        return list;
     }
 
     @Override

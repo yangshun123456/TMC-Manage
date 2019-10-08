@@ -14,24 +14,10 @@
 
     <body>
         <div id="main-wrapper">
-            <!--**********************************
-                Main wrapper start
-            ***********************************-->
             <%@include file="import/body.jsp" %>
-            <!--**********************************
-                Main wrapper end
-            ***********************************-->
-
-            <!--**********************************
-               Content body start
-           ***********************************-->
             <div class="content-body">
 
             </div>
-            <!--**********************************
-                Content body end
-            ***********************************-->
-
             <%@include file="import/js.jsp" %>
         </div>
         <div class="footer">

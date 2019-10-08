@@ -15,11 +15,15 @@
             $(function () {
                 $("#submit1").click(function () {
                     $.post({
-                        url:'insertAdmin',
+                        url:'addAdmin',
                         data:$("#form1").serialize(),
                         success:function (result) {
-                            alert(result);
-                            location.href='${PATH_WAY}/showAdmin'
+                            if(result!='插入成功'){
+                                location.href='toadd';
+                            }else{
+                                location.href='${PATH_WAY}/toadmin';
+                            }
+
                         },
                         error:function () {
 
@@ -59,7 +63,7 @@
         <!--主要区域开始-->
         <div id="main">
             <div id="save_result_info" class="save_success">保存成功！</div>
-            <form action="" method="" class="main_form" id="form1">
+            <form action="addAdmin" method="post" class="main_form" id="form1">
                 <div class="text_info clearfix"><span>姓名：</span></div>
                 <div class="input_info">
                     <input type="text" name="aname"/>
@@ -86,7 +90,7 @@
                 </div>
                 <div class="text_info clearfix"><span>上传头像</span></div>
                 <div class="input_info">
-                    <input type="file" name="userimg"/>
+                    <input type="file" name="by001"/>
                     <span class="required">*</span>
 <%--                    <div class="validate_msg_long error_msg">图片大小400*400px</div>--%>
                 </div>
@@ -98,7 +102,7 @@
                 </div>
                 <div class="text_info clearfix"><span>Email：</span></div>
                 <div class="input_info">
-                    <input type="text" class="width200" name="aemail"/>
+                    <input type="text" class="width200" name="aemail" value=""/>
                     <span class="required">*</span>
 <%--                    <div class="validate_msg_medium error_msg">50长度以内，正确的 email 格式</div>--%>
                 </div>
@@ -109,14 +113,13 @@
                             <c:forEach items="${role}" var="role1">
                                 <li><input type="checkbox" name="roleall" value="${role1.rid}"/>${role1.rname}</li>
                             </c:forEach>
-
                         </ul>
                     </div>
                     <span class="required">*</span>
 <%--                    <div class="validate_msg_tiny error_msg">至少选择一个</div>--%>
                 </div>
                 <div class="button_info clearfix">
-                    <input type="button" value="保存" class="btn_save" id="submit1"/>
+                    <input type="button" value="保存" class="btn_save" id="submit1" />
                     <input type="button" value="取消" class="btn_save"/>
                 </div>
             </form>

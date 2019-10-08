@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Admin_Role {
-    private Integer rid;
     private Integer aid;
+    private Integer rid;
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @Component
 public class Admin {
-    private int aid;
+    private Integer aid;
     private String aname;
     private String acname;
     private String apassword;
@@ -38,11 +38,13 @@ public class Admin {
     }
 
     public void changeRole(){
-        for(int i=0;i<userrole.size ();i++){
-            if(i<userrole.size ()-1){
-                roleshow+=userrole.get (i).getRname ()+",";
-            }else{
-                roleshow=roleshow+userrole.get (i).getRname ()+"";
+        if(userrole!=null) {
+            for (int i = 0; i < userrole.size (); i++) {
+                if (i < userrole.size () - 1) {
+                    roleshow += userrole.get (i).getRname () + ",";
+                } else {
+                    roleshow = roleshow + userrole.get (i).getRname () + "";
+                }
             }
         }
     }
