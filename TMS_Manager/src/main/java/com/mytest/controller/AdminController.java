@@ -38,7 +38,7 @@ public class AdminController {
     public String login(Admin admin, HttpServletRequest request) {
         request.getSession ().setAttribute ("PATH_WAY", request.getContextPath ());
         Admin admin1 = adminService.selectAdmin (admin);
-        if (admin1.getAcname () == null) {
+        if (admin1==null||admin1.getAcname () == null) {
             return "error";
         }
         request.getSession ().setAttribute ("admin", admin1);

@@ -100,25 +100,18 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="<%=request.getContextPath()%>/view/role/role_list.jsp">角色查询/删除</a></li>
-                        <li><a href="../index.jsp">角色修改</a></li>
-                        <li><a href="../index.jsp">角色添加</a></li>
+                        <li><a href="<%=request.getContextPath()%>/view/role/role_update.jsp">角色修改</a></li>
+                        <li><a href="<%=request.getContextPath()%>/view/role/role_add.jsp">角色添加</a></li>
                     </ul>
                 </li>
                 <li class="mega-menu mega-menu-sm">
                     <a class="has-arrow" href=" #" aria-expanded="false">
-                        <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>
+                        <i class="icon-globe-alt menu-icon"></i><span class="nav-text">人员管理</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="../quixlab-master/layout-blank.html">Blank</a></li>
-                        <li><a href="../quixlab-master/layout-one-column.html">One Column</a></li>
-                        <li><a href="../quixlab-master/layout-two-column.html">Two column</a></li>
-                        <li><a href="../quixlab-master/layout-compact-nav.html">Compact Nav</a></li>
-                        <li><a href="../quixlab-master/layout-vertical.html">Vertical</a></li>
-                        <li><a href="../quixlab-master/layout-horizontal.html">Horizontal</a></li>
-                        <li><a href="../quixlab-master/layout-boxed.html">Boxed</a></li>
-                        <li><a href="../quixlab-master/layout-wide.html">Wide</a></li>
-                        <li><a href="../quixlab-master/layout-fixed-header.html">Fixed Header</a></li>
-                        <li><a href="../quixlab-master/layout-fixed-sidebar.html">Fixed Sidebar</a></li>
+                        <li><a href="<%=request.getContextPath()%>/view/admin/admin_list.jsp">人员信息查询/删除</a></li>
+                        <li><a href="<%=request.getContextPath()%>/view/admin/admin_update.jsp">人员信息修改</a></li>
+                        <li><a href="<%=request.getContextPath()%>/view/admin/admin_add.jsp">人员信息增加</a></li>
                     </ul>
             </ul>
         </div>

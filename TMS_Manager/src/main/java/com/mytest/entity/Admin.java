@@ -38,7 +38,7 @@ public class Admin {
     }
 
     public void changeRole(){
-        if(userrole!=null) {
+        if(userrole!=null&&userrole.size ()!=0) {
             for (int i = 0; i < userrole.size (); i++) {
                 if (i < userrole.size () - 1) {
                     roleshow += userrole.get (i).getRname () + ",";

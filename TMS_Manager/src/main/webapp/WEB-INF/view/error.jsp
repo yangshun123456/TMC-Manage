@@ -10,8 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title></title>
-        <link type="text/css" rel="stylesheet" media="all" href="../../resource/css/global.css" />
-        <link type="text/css" rel="stylesheet" media="all" href="../../resource/css/global_color.css" />
+        <link type="text/css" rel="stylesheet" media="all" href="<%=request.getContextPath()%>/resource/css/global.css" />
+        <link type="text/css" rel="stylesheet" media="all" href="<%=request.getContextPath()%>/resource/css/global_color.css" />
         <script language="javascript" type="text/javascript">
             var timer;
             //启动跳转的定时器
@@ -27,7 +27,7 @@
                 }
                 else {
                     window.clearInterval(timer);
-                    location.href = "login1.jsp";
+                    location.href = "<%=request.getContextPath()%>/start";
                 }
             }
 
@@ -35,7 +35,7 @@
             function resetTimer() {
                 if (timer != null && timer != undefined) {
                     window.clearInterval(timer);
-                    location.href = "login1.jsp";
+                    location.href = "<%=request.getContextPath()%>/start";
                 }
             }
         </script> 

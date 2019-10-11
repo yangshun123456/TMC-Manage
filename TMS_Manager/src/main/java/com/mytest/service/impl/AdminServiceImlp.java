@@ -96,11 +96,14 @@ public class AdminServiceImlp implements AdminService {
         Admin admin1=adminDao.selectByIdAndPsw (admin);
         List<Priv> privs=privDao.selectPrivByAdmin (admin1);
         List<Role> roles=roleDao.selectRoleByAdmin (admin1);
-        admin1.setUserpriv (privs);
-        admin1.setUserrole (roles);
-        admin1.changeRole ();
-        admin1.changeCreateTime ();
-        admin1.changeUpdateTime ();
+
+        if(admin1!=null) {
+            if (privs != null && privs.size () != 0) admin1.setUserpriv (privs);
+            if (roles != null && roles.size () != 0) admin1.setUserrole (roles);
+            admin1.changeRole ();
+            admin1.changeCreateTime ();
+            admin1.changeUpdateTime ();
+        }
         return admin1;
     }
 

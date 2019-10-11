@@ -30,7 +30,7 @@
                                                    placeholder="请输入名称">
                                         </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                         <button type="submit" class="btn btn-default">提交</button>
-                                    </form>
+                                    </form><br/>
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -45,22 +45,25 @@
                                             <td>产品1</td>
                                             <td>23/11/2013</td>
                                             <td>待发货</td>
-                                            <>
+                                            <td><button type="button" class="btn mb-1 btn-info">删除</button></td>
                                         </tr>
                                         <tr class="success">
                                             <td>产品2</td>
                                             <td>10/11/2013</td>
                                             <td>发货中</td>
+                                            <td><button type="button" class="btn mb-1 btn-info">删除</button></td>
                                         </tr>
                                         <tr class="warning">
                                             <td>产品3</td>
                                             <td>20/10/2013</td>
                                             <td>待确认</td>
+                                            <td><button type="button" class="btn mb-1 btn-info">删除</button></td>
                                         </tr>
                                         <tr class="danger">
                                             <td>产品4</td>
                                             <td>20/10/2013</td>
                                             <td>已退货</td>
+                                            <td><button type="button" class="btn mb-1 btn-info">删除</button></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -84,7 +87,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
         </div>
 
 
